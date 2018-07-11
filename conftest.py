@@ -64,15 +64,15 @@ def pytest_configure(config):
 ########################################################################################################################
 @pytest.fixture(scope='session')
 def log():
-    # Нам нужен один логгер на всю пачку тестов)
+    #
     return logger
 
 
 @pytest.yield_fixture(scope="session")
 def _browser(sets):
-    # и браузер надо рестартовать только если что-то сломалось.
+    # 
     logger.info('Selenium: open browser')
-    url = os.getenv('URL', 'https://rc.sylogent.com/ps/Landing/Login.aspx')
+    url = os.getenv('URL', 'https://')
     browser_binding = SeleniumWebDriver(**{
         'grid': settings.get('grid'),
         'local': settings.get('local'),
